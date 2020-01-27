@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mandelbrot-set</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background: rgb(0, 27, 31);
+        }
+        button {
+            position: relative;
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: none;
+            font-size: 30px;
+            color: rgb(25, 151, 31);
+            cursor: pointer;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        .buttons-wrap {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background: rgba(128, 128, 128, 0.102);
+        }
+        .buttons-row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .keyboard-btn {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: -2px;
+            left: 0;
+            border: 1px solid grey;
+            border-radius: 15%;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.602);
+            color: #fff
+        }
+        .loader {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border-top: 4px solid rgba(0, 78, 0, 0.37);
+            border-right: 4px solid rgba(0, 78, 0, 0.37);
+            border-bottom: 4px solid rgba(0, 78, 0, 0.37);
+            border-left: 4px solid #06831b;
+            animation: rotate 600ms linear infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id='nav' class='buttons-wrap'>
+        <div class="buttons-row">
+            <button id="zoom-out"><code class="keyboard-btn">q</code>-</button>
+            <button id="up"><code class="keyboard-btn">w</code>🡅</button>
+            <button id="zoom-in"><code class="keyboard-btn">e</code>+</button>
+        </div>
+        <div class="buttons-row">
+            <button id="left"><code class="keyboard-btn">a</code>🡄</button>
+            <div id="loader" class="loader hidden"></div>
+            <button id="right"><code class="keyboard-btn">s</code>🡆</button>
+        </div>
+        <div class="buttons-row">
+            <div></div>
+            <button id="down"><code class="keyboard-btn">d</code>🡇</button>
+            <div></div>
+        </div>
+    </div>
+    <script src='bundle.js'></script>
+</body>
+</html>
